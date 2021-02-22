@@ -83,9 +83,12 @@ class Command(NewlineCommand):
             only_qc_controlled_data,
         )
         value = cache.get(cache_key, False)
+
+        logging.info(f'cache keys: {cache.keys}')
+        logging.info(f'value: {value}')
+
         if value is not False:
             return value
-
 
         try:
             

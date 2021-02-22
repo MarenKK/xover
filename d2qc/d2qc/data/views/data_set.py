@@ -361,9 +361,11 @@ def get_summary_statistics_status(request,**kwargs):
         calculation_started = calculating_value
         #logging.debug(f'calculation_started: {calculation_started}')
 
+
         # Check if calculation is ready
         ready_key = 'calculate' + cache_key_px
         value = cache.get(ready_key, False)
+        logging.debug(f'value: {value}')
 
         if value:
             if value[0:18] == 'calculation failed':
